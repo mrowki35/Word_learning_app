@@ -5,7 +5,7 @@ This is a simple application designed to assist you in learning foreign language
 ---
 # Table of contents
 1. [How it works](#how-it-works)
-2. [Example Input/Output](#example-inputoutput)
+2. [Example](#example-inputoutput)
 3. [Libraries Used](#libraries-used)
 4. [Getting Started](#getting-started)
 5. [TODO](#todo)
