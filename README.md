@@ -5,7 +5,7 @@ This is a simple application designed to assist you in learning foreign language
 ---
 # Table of contents
 1. [How it works](#how-it-works)
-2. [Example](#example-inputoutput)
+2. [Example](#example)
 3. [Libraries Used](#libraries-used)
 4. [Getting Started](#getting-started)
 5. [TODO](#todo)
@@ -21,7 +21,7 @@ After forking this repository the only thing you have to do to start is exec the
 
 ---
 
-## Example Input/Output
+## Example
 ![Input](Images/Zrzut%20ekranu%202023-05-26%20142524.png)
 ![Output](Images/Zrzut%20ekranu%202023-05-26%20142737.png)
 
