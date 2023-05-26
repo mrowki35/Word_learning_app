@@ -24,8 +24,8 @@ After forking this repository the only thing you have to do to start is exec the
 ## Example Input
 This is the way the data.text represents words:
 
-Dom, House, das Haus
-Książka, Book, das Buch
+Dom, House, das Haus ///
+Książka, Book, das Buch ///
 Samochód, Car, das Auto
 
 ---
