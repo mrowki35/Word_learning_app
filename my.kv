@@ -1,0 +1,425 @@
+#:kivy 2.1.0
+#:import utils kivy.utils
+WindowManager:
+    FirstWindow:
+    SecondWindow:
+    ThirdWindow:
+    FourthWindow:
+			
+
+<FirstWindow>:
+    name: "first"
+    canvas.before:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: "main_1.png"
+    BoxLayout:
+        orientation:"vertical"
+        size: root.width , root.height
+        spacing: 30
+        padding: 50
+        Button:
+            background_color: (1,1,1,0.2)
+            background_normal: ''
+            text: "Start quiz"
+            on_release: app.root.current = "third"
+            bold: True
+            font_size: 20
+        Button:
+            background_color: (1,1,1,0.2)
+            bold: True
+            background_normal: ''
+            text:"Add a word"
+            on_release: app.root.current= "fourth"
+            font_size: 20
+           
+        Button:
+            background_color: (1,1,1,0.2)
+            background_normal: ''
+            text: "Delete word"
+            on_release: app.root.current= "second"
+            bold: True
+            font_size: 20
+
+
+<SecondWindow>:
+    name:"second"
+    wordtodelete:wordtodelete
+    Carousel:
+        loop: True
+        FloatLayout:
+            Image:
+                pos: self.pos
+                size: self.size
+                source: "back10.png"
+                allow_stretch: True
+                keep_ratio: False  
+            TextInput:
+                pos_hint: {'center_x': .5, 'center_y': .75}
+                size_hint:(0.5,0.25)
+                hint_text:'Słówko do usunięcia'
+                id: wordtodelete
+                multiline:True
+                background_color: (1,1,1,0.1)
+                background_normal: '' 
+                bold: True
+                font_size: 20
+            Button:
+                size_hint:(0.5,0.25)
+                pos_hint: {'center_x': .5, 'center_y': .2}
+                text:"Submit"
+                on_release: root.presstosubmit()
+                background_color: (1,1,1,0.1)
+                bold: True
+                background_normal: ''
+                font_size: 26 
+        FloatLayout:
+            orientation: 'vertical'
+            Image:
+                pos: self.pos
+                size: self.size
+                source: "back11.png"
+                allow_stretch: True
+                keep_ratio: False  
+            Button:
+                size_hint:(0.5,0.25)
+                text: "Wyczyść wszystkie słówka"
+                pos_hint: {'center_x': .5, 'center_y': .75}
+                background_color: (1,1,1,0.1)
+                background_normal: '' 
+                on_release: root.cleanall()
+                bold:True
+                italic:True
+                font_size:24
+            Button:
+                size_hint: (0.2, 0.1)
+                pos_hint: {'center_x': .12, 'center_y': .08}
+                text: "Back to main menu"
+                on_release: app.root.current= "first"
+                background_color: (1,1,1,0.1)
+                background_normal: '' 
+                bold:True
+
+            Label:
+                
+                id: my_label
+                font_size:30
+                bold:True
+                italic:True
+                pos_hint: {'center_x': .5, 'center_y': .4}
+                size_hint:(0.5,0.25)
+                
+            
+
+<ThirdWindow>:
+    rgba: (0,0,0,0)
+    name: "third"
+    ang:ang
+    niem:niem
+    popolsku:popolsku
+
+
+    Carousel:
+        loop: True
+        direction: 'right'
+        
+        
+        
+        FloatLayout:
+            id: thisone
+            Image:
+                pos: self.pos
+                size: self.size
+                source: "back1.png"
+                allow_stretch: True
+                keep_ratio: False  
+            Label:
+                canvas.before:
+                    Color:
+                        rgba:(1,1,1,0.2)
+                    RoundedRectangle:
+                        size: self.size
+                        pos: self.pos
+                text: root.showwhatword()
+                id: popolsku
+                font_size:26
+                bold:True
+                italic:True
+                pos_hint: {'center_x': .5, 'center_y': .6}
+                size_hint:(0.5,0.25)
+            Button:
+                size_hint: (0.2, 0.1)
+                pos_hint: {'center_x': .12, 'center_y': .08}
+                text: "Back to main menu"
+                on_release: app.root.current= "first"
+                background_color: (1,1,1,0.1)
+                background_normal: ''              
+                bold: True
+            Button:
+                text: "Zacznij od początku"
+                font_size: 20
+                color: (1,1,1,1)
+                background_normal: ''
+                pos_hint: {'center_x': .5, 'center_y': .2}
+                size_hint:(0.3,0.12)
+                background_color: (1,1,1,0.1)
+                on_release: root.resetingpress()
+                bold: True
+
+
+
+        FloatLayout:
+            Image:
+                pos: self.pos
+                size: self.size
+                source: "back2.png"
+                allow_stretch: True
+                keep_ratio: False  
+        #    Label:
+             #   text: "Po angielsku: "
+            TextInput:
+                size_hint: (0.5, 0.2)
+                pos_hint: {'center_x': .5, 'center_y': .75}
+                id: ang
+                multiline:True
+                hint_text:'Po angielsku'
+                font_size:20
+                bold: True
+                background_color: (1,1,1,0.05)
+                foreground_color: (0,1,0,1)
+            Button:
+                size_hint: (0.2, 0.1)
+                pos_hint: {'center_x': .12, 'center_y': .08}
+                text: "Back to main menu"
+                on_release: app.root.current= "first"
+                background_color: (1,1,1,0.1)
+                background_normal: '' 
+                bold: True
+
+
+        FloatLayout:
+            Image:
+                pos: self.pos
+                size: self.size
+                source: "back1.png"
+                allow_stretch: True
+                keep_ratio: False  
+            #Label:
+               # background_color: utils.get_color_from_hex('#fa00df')
+               # text: "Po niemiecku: "
+                
+            TextInput:
+                size_hint: (0.5, 0.2)
+                pos_hint: {'center_x': .5, 'center_y': .75}
+                id: niem
+                multiline:True
+                background_color: (1,1,1,0.05)
+                hint_text:'Po niemiecku'
+                font_size:20
+                bold: True
+                foreground_color: (0,1,0,1)
+            Button:
+                size_hint: (0.2, 0.1)
+                pos_hint: {'center_x': .12, 'center_y': .08}
+                text: "Back to main menu"
+                on_release: app.root.current= "first"
+                background_color: (1,1,1,0.1)
+                background_normal: ''             
+                bold: True
+        
+        
+        
+        FloatLayout:
+            Image:
+                pos: self.pos
+                size: self.size
+                source: "back1.png"
+                allow_stretch: True
+                keep_ratio: False  
+            
+
+            
+            Button:
+                bold: True
+                text: "Sprawdź odpowiedź"
+                font_size: 28
+                color: (1,1,1,1)
+                background_normal: ''
+                pos_hint: {'center_x': .5, 'center_y': .75}
+                size_hint:(0.5,0.25)
+                background_color: (1,1,1,0.1)
+                on_release: root.functioncheckanswer()
+            Button:
+                bold: True
+                text: "Następne słówko"
+                font_size: 16
+                color: (1,1,1,1)
+                background_normal: ''
+                pos_hint: {'center_x': .25, 'center_y': .15}
+                size_hint:(0.3,0.15)
+                on_release: root.newword()
+                background_color: (1,1,1,0.1)
+            Button:
+                text: "Pokaż prawidłową odpowiedź"
+                font_size: 16
+                color: (1,1,1,1)
+                background_normal: ''
+                pos_hint: {'center_x': .75, 'center_y': .15}
+                size_hint:(0.3,0.15)
+                background_color: (1,1,1,0.1)
+                on_release: root.showtherightanswer()
+                bold: True
+            Label:
+                id: cowyswietlic
+                pos_hint: {'center_x': .5, 'center_y': .4}
+                bold: True
+                italic: True
+                size_hint:(0.5,0.25)
+                font_size: 16
+                canvas.before:
+                    Color:
+                        rgba: root.rgba
+                    RoundedRectangle:
+                        size: self.size
+                        pos: self.pos
+
+
+
+
+<FourthWindow>:
+
+    name:"fourth"
+
+    pl:pl
+    eng:eng
+    de:de
+    Carousel:
+        loop: True
+        direction: 'right'
+        
+        
+        
+        FloatLayout:
+            
+            Image:
+                pos: self.pos
+                size: self.size
+                source: "b5.png"
+                allow_stretch: True
+                keep_ratio: False   
+           # Label:
+             #   size_hint: (0.1, 0.17)
+              #  pos_hint: {'right': 0.95, 'bottom': 0}
+               # text: "Po polsku"
+            
+            TextInput:
+                size_hint: (0.5, 0.2)
+                pos_hint: {'center_x': .5, 'center_y': .75}
+                id: pl
+                multiline:True
+                hint_text:'Po polsku'
+                background_color: (1,1,1,0.05)
+                font_size: 20
+                bold: True
+                italic: True
+            Button:
+                size_hint: (0.2, 0.1)
+                pos_hint: {'center_x': .12, 'center_y': .08}
+                text: "Back to main menu"
+                on_release: app.root.current= "first"
+                background_color: (1,1,1,0.1)
+                background_normal: '' 
+                bold: True
+        
+        FloatLayout:
+            
+            Image:
+                pos: self.pos
+                size: self.size
+                source: "b6.png"
+                allow_stretch: True
+                keep_ratio: False   
+                    
+        #    Label:
+             #   size_hint: (0.1, 0.17)
+              #  pos_hint: {'right': 0.95, 'bottom': 0}
+              #  text: "Po angielsku"
+            TextInput:
+                size_hint: (0.5, 0.2)
+                pos_hint: {'center_x': .5, 'center_y': .75}
+                id: eng
+                multiline:True
+                hint_text:"In english"
+                background_color: (1,1,1,0.05)
+                bold: True
+                italic: True
+                font_size: 20
+            Button:
+                size_hint: (0.2, 0.1)
+                pos_hint: {'center_x': .12, 'center_y': .08}
+                text: "Back to main menu"
+                on_release: app.root.current= "first"
+                bold: True
+                background_color: (1,1,1,0.1)
+                background_normal: '' 
+        FloatLayout:
+            
+            Image:
+                pos: self.pos
+                size: self.texture_size
+                source: "b7.png"
+                allow_stretch: True
+                keep_ratio: False 
+                    
+            #Label:
+               # size_hint: (0.1, 0.17)
+                #pos_hint: {'right': 0.95, 'bottom': 0}
+               # text: "Po niemiecku"
+            
+            TextInput:
+                size_hint: (0.5, 0.2)
+                pos_hint: {'center_x': .5, 'center_y': .75}
+                id: de
+                multiline:True
+                hint_text:"Auf deutsch"
+                background_color: (1,1,1,0.05)
+                bold: True
+                italic: True
+                font_size: 20
+            Button:
+                bold: True
+                size_hint: (0.2, 0.1)
+                pos_hint: {'center_x': .12, 'center_y': .08}
+                text: "Back to main menu"
+                on_release: app.root.current= "first"
+                background_color: (1,1,1,0.1)
+                background_normal: '' 
+        FloatLayout:
+            
+            Image:
+                pos: self.pos
+                size: self.texture_size
+                source: "b8.png"
+                allow_stretch: True
+                keep_ratio: False    
+            Button:
+                text: "Potwierdź"
+                font_size: 28
+                color: (1,1,1,1)
+                background_normal: ''
+                pos_hint: {'center_x': .5, 'center_y': .7}
+                size_hint:(0.5,0.25)
+                background_color: (1,1,1,0.2)
+                bold: True
+                on_press: root.press()
+
+
+<RoundedButton@Button>
+    canvas.before:
+        RoundedRectangle:
+            pos: self.pos
+            size: self.size
+            radius: [34]   
+        Color:
+            rgba: (55/255,55/255,55/255,1)
