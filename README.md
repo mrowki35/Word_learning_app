@@ -13,18 +13,20 @@ This is a simple application designed to assist you in learning foreign language
 ## How it works
 After forking this repository the only thing you have to do to start is exec the main Python file.
 
-![Basic app view](Images/Zrzut%20ekranu%202023-05-26%20125647.png)
+![Basic app view](Images/Zrzut%20ekranu%202023-05-26%20161739.png)
 
-![Pasting the links](Images/Zrzut%20ekranu%202023-05-26%20130127.png)
-![Wrong links](Images/Zrzut%20ekranu%202023-05-26%20130600.png)
-![GREEN=OK RED=WRONG LNK](Images/Zrzut%20ekranu%202023-05-26%20130631.png)
+![Guessing_game](Images/Zrzut%20ekranu%202023-05-26%20161708.png)
+
+![Typing_word](Images/Zrzut%20ekranu%202023-05-26%20161809.png)
 
 ---
 
-## Example
-![Input](Images/Zrzut%20ekranu%202023-05-26%20142524.png)
-![Output](Images/Zrzut%20ekranu%202023-05-26%20142737.png)
+## Example Input
+This is the way the data.text represents words:
 
+Dom, House, das Haus
+Książka, Book, das Buch
+Samochód, Car, das Auto
 
 ---
 ## Libraries Used
@@ -32,9 +34,16 @@ After forking this repository the only thing you have to do to start is exec the
 
 ---
 ## Getting Started
-* be aware some websites could change their html so might not work anymore
-* you can start collecting your data as soon as you start the app
-* requires installating additional libraries mentioned above
+* delete word - deletes a word from your app dictionary
+* add word - adds word to your app dictionary
+* start - start the game
+* sprawdź odpowiedź - checks your answer
+* DOBRZE = GOOD
+* ŹLE = BAD 
+* pokaż odpowiedź - shows the right answer
+![BAD](Images/Zrzut%20ekranu%202023-05-26%20161844.png)
+
+![Show_answer](Images/Zrzut%20ekranu%202023-05-26%20161922.png)
 
 ---
 ## TODO
