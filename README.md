@@ -42,7 +42,6 @@ Samochód, Car, das Auto
 * ŹLE = BAD 
 * pokaż odpowiedź - shows the right answer
 ![BAD](Images/Zrzut%20ekranu%202023-05-26%20161844.png)
-
 ![Show_answer](Images/Zrzut%20ekranu%202023-05-26%20161922.png)
 
 ---
